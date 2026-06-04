@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Bash Creatives - Digital Marketer, Social Media Manager, Graphic Designer & Content Creator with First Class degree in Marketing and 4+ years of experience. Real audience engagement, brand visibility, and steady growth.">
+  <meta name="keywords" content="Digital Marketer, Social Media Manager, Graphic Designer, Content Creator, Bashir Aminu, Portfolio, Nigeria, Marketing Strategy">
+  <meta name="author" content="Bashir Aminu">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Bash Creatives | Digital Marketing & Social Media Portfolio">
+  <meta property="og:description" content="I back my creative work with a First Class degree in Marketing and over 4 years of digital experience. Let's build your brand presence.">
+  <meta property="og:image" content="#">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bash Creatives Portfolio">
+  <meta name="twitter:description" content="Marketing strategist, content creator & social media manager driving real engagement.">
+  <link rel="canonical" href="https://bashcreatives.vercel.app">
+  <title>Bash Creatives | Digital Marketer & Content Creator</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ------------------------------- */
+    /* CSS VARIABLES (navy & sage theme) */
+    /* ------------------------------- */
+    :root {
+      --navy-deep: #0B2B3B;      /* primary navy */
+      --navy-mid: #1C4456;
+      --sage-main: #8DA39A;       /* sage green */
+      --sage-light: #C2D5CC;
+      --sage-soft: #E5EFEA;
+      --cream-bg: #F9FBF9;
+      --white: #FFFFFF;
+      --dark-text: #1A2E3A;
+      --gray-text: #4F666F;
+      --accent-gold: #D9B48B;
+      --shadow-sm: 0 12px 28px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 20px 35px -12px rgba(0, 0, 0, 0.09);
+      --transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--cream-bg);
+      color: var(--dark-text);
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    /* Smooth Scroll + Sticky header adjustment */
+    html {
+      scroll-padding-top: 80px;
+    }
+
+    /* Typography */
+    h1, h2, h3 {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--sage-main);
+      border-radius: 4px;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header & Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+      transition: var(--transition);
+      border-bottom: 1px solid rgba(141, 163, 154, 0.2);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.9rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--sage-main) 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      align-items: center;
+      transition: var(--transition);
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--navy-deep);
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+    .nav-links a:hover {
+      color: var(--sage-main);
+    }
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--navy-deep);
+      background: none;
+      border: none;
+    }
+
+    /* Section base */
+    section {
+      padding: 5rem 0;
+    }
+    .section-fade {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .section-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding-top: 5rem;
+    }
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .hero-content {
+      flex: 1;
+    }
+    .hero-badge {
+      background: var(--sage-light);
+      color: var(--navy-deep);
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1.2rem;
+    }
+    .hero-content h1 {
+      font-size: 3.8rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .typing-wrapper {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--sage-main);
+      margin: 1rem 0 1.5rem;
+      min-height: 70px;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--navy-deep);
+      color: white;
+      box-shadow: 0 4px 8px rgba(11,43,59,0.2);
+    }
+    .btn-primary:hover {
+      background: #1C556B;
+      transform: translateY(-3px);
+    }
+    .btn-outline {
+      border: 1.5px solid var(--navy-deep);
+      background: transparent;
+      color: var(--navy-deep);
+    }
+    .btn-outline:hover {
+      background: var(--navy-deep);
+      color: white;
+    }
+    .hero-image {
+      flex: 0.8;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .hero-image img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 32px;
+      box-shadow: var(--shadow-md);
+      border: 3px solid white;
+      transition: 0.3s;
+    }
+    .hero-image img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Cards grid */
+    .services-grid, .skills-grid, .org-grid, .cert-grid, .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .service-card, .skill-card, .org-card, .cert-card, .portfolio-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 1.8rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 1px solid rgba(141, 163, 154, 0.2);
+    }
+    .service-card:hover, .org-card:hover, .cert-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--sage-light);
+    }
+    .service-icon {
+      font-size: 2.4rem;
+      color: var(--sage-main);
+      margin-bottom: 1.2rem;
+    }
+    .skill-tag {
+      background: var(--sage-soft);
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      margin: 0.3rem;
+    }
+    .platforms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .platform-badge {
+      background: var(--navy-deep);
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .result-stats {
+      background: linear-gradient(120deg, #F1F7F4, white);
+      border-radius: 28px;
+      padding: 2rem;
+      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .stat {
+      text-align: center;
+      flex: 1;
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--navy-deep);
+    }
+    .contact-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .contact-link {
+      background: var(--white);
+      padding: 1rem 1.8rem;
+      border-radius: 60px;
+      text-decoration: none;
+      color: var(--navy-deep);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .contact-link:hover {
+      background: var(--sage-light);
+      transform: scale(1.02);
+    }
+    footer {
+      background: var(--navy-deep);
+      color: #D9E3DE;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 860px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(16px);
+        width: 70%;
+        height: calc(100vh - 70px);
+        gap: 2rem;
+        padding: 2rem;
+        box-shadow: 4px 0 20px rgba(0,0,0,0.05);
+        transition: 0.3s;
+        z-index: 999;
+        align-items: flex-start;
+      }
+      .nav-links.active {
+        left: 0;
+      }
+      .hamburger {
+        display: block;
+      }
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .container {
+        padding: 0 1.5rem;
+      }
+      .hero-image img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+    @media (min-width: 861px) {
+      .nav-links {
+        display: flex !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">BASH CREATIVES</div>
+    <button class="hamburger" id="hamburger" aria-label="menu"><i class="fas fa-bars"></i></button>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Experience</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="hero-badge"><i class="fas fa-bolt"></i> Strategic Marketing</span>
+        <h1>Bashir Aminu</h1>
+        <div class="typing-wrapper" id="typingEffect"></div>
+        <p style="font-size:1.1rem; max-width:500px">First Class Marketing graduate +4 years hands-on digital strategy. I blend creative visuals with data-driven growth.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Let's Connect</a>
+          <a href="#work" class="btn btn-outline">View Portfolio</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://placehold.co/400x400/E5EFEA/0B2B3B?text=Congress+Speaking" alt="Bashir speaking at congress event" loading="lazy">
+        <img src="https://placehold.co/400x400/E5EFEA/0B2B3B?text=Graduation+Steel" alt="Bashir graduation ceremony" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section-fade">
+    <div class="container">
+      <h2>About Me</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between;">
+        <div style="flex: 2;">
+          <p style="font-size:1.15rem; margin-bottom:1rem">I back my creative work with a First Class degree in Marketing and over 4 years of hands on digital experience. I don't just design graphics or post content randomly, I use actual marketing strategy to build real audience engagement, step up brand visibility, and drive steady follower growth. From high end visual design to complete social media management, I focus on making your digital presence look premium and work effectively.</p>
+          <div class="result-stats">
+            <div class="stat"><div class="stat-number">+45%</div><div>Engagement growth (1st month)</div></div>
+            <div class="stat"><div class="stat-number">60%</div><div>Increase in DM inquiries</div></div>
+            <div class="stat"><div class="stat-number">4+</div><div>Years experience</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services (dynamic) -->
+  <section id="services" class="section-fade" style="background: var(--sage-soft);">
+    <div class="container">
+      <h2>My Services</h2>
+      <div id="servicesContainer" class="services-grid"></div>
+    </div>
+  </section>
+
+  <!-- Skills & Platforms -->
+  <section id="skills" class="section-fade">
+    <div class="container">
+      <h2>Core Skills & Platforms</h2>
+      <div id="skillsContainer" style="margin-bottom: 2rem;"></div>
+      <div id="platformsContainer"></div>
+    </div>
+  </section>
+
+  <!-- Work / Organizations (6 orgs) -->
+  <section id="work" class="section-fade" style="background: white;">
+    <div class="container">
+      <h2>Organizations I've Worked With</h2>
+      <div id="orgsContainer" class="org-grid"></div>
+      <div style="margin-top: 2.5rem;">
+        <h3>Case Study Spotlight: Co-Dev Hub</h3>
+        <p><strong>Approach:</strong> 3-content theme structure (Education | Product | Lifestyle). Optimized captions with value-driven storytelling, cohesive templates with neutral skin-toned palettes, strategic scheduling.</p>
+        <p><strong>Results:</strong> +45% engagement in first month, unified feed design, 60% more product inquiry DMs & saves.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Graphic Design (Images from PDF) -->
+  <section id="portfolio" class="section-fade" style="background: var(--sage-soft);">
+    <div class="container">
+      <h2>Graphic Design Portfolio</h2>
+      <div id="portfolioContainer" class="portfolio-grid"></div>
+    </div>
+  </section>
+
+  <!-- Certifications Section (5 certs) -->
+  <section id="certifications" class="section-fade">
+    <div class="container">
+      <h2>Certifications</h2>
+      <div id="certContainer" class="cert-grid"></div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="section-fade" style="background: white;">
+    <div class="container">
+      <h2>What Clients Say</h2>
+      <div id="testimonialContainer" style="max-width: 800px; margin: 0 auto;"></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section-fade" style="background: var(--sage-soft);">
+    <div class="container" style="text-align: center;">
+      <h2>Reach Out</h2>
+      <div class="contact-links">
+        <a href="https://instagram.com/bashcreativespace" target="_blank" class="contact-link"><i class="fab fa-instagram fa-lg"></i> @bashcreativespace</a>
+        <a href="tel:+2348131562630" class="contact-link"><i class="fas fa-phone-alt"></i> +234 813 156 2630</a>
+        <a href="tel:+2348127216623" class="contact-link"><i class="fas fa-phone-alt"></i> +234 812 721 6623</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 Bash Creatives — Digital marketing that builds legacy. All rights reserved.</p>
+</footer>
+
+<script>
+  // --------------------------------------------------------------
+  // DYNAMIC DATA OBJECTS (CMS ready - easily replace with API)
+  // --------------------------------------------------------------
+  const servicesData = [
+    { icon: "fas fa-chart-line", title: "Social Media Management", desc: "Helping brands stay consistent, visible, and engaging across all platforms." },
+    { icon: "fas fa-palette", title: "Graphic Design", desc: "Designing visuals that communicate clearly and make brands stand out." },
+    { icon: "fas fa-pen-fancy", title: "Content Creation", desc: "Crafting content that informs, attracts, and builds audience trust." },
+    { icon: "fas fa-envelope-open-text", title: "Email Marketing", desc: "Turning inboxes into conversion channels with strategic, targeted campaigns." },
+    { icon: "fas fa-video", title: "Video Editing", desc: "Transforming raw footage into clean, engaging, story-driven content." },
+    { icon: "fas fa-users", title: "Community Management", desc: "Building and nurturing active, loyal online communities around brands." }
+  ];
+
+  const skillsList = [
+    "Content Planning & Creation", "Copywriting & Captioning", "Brand Positioning & Storytelling",
+    "Scheduling & Calendar Management", "Community Management", "Photography & Videography",
+    "Flyer & Poster Design", "Analytics & Reporting"
+  ];
+
+  const platformsList = ["Instagram", "TikTok", "Twitter", "Facebook", "LinkedIn"];
+
+  const organizations = [
+    { name: "Co-Dev Hub", desc: "Leading Social Innovation Centre in Northeast Nigeria." },
+    { name: "AUN Entrepreneurship and Innovation Hub", desc: "American University of Nigeria — American style liberal arts & innovation." },
+    { name: "Kambasha Global Justice Attorneys", desc: "Nigerian law firm: IP protection, regulatory compliance, human rights advocacy." },
+    { name: "Fati Abubakar Arts Foundation", desc: "Visual arts for memorialization and healing." },
+    { name: "Echoes Breath Green", desc: "Sustainability & eco-conscious development initiative." },
+    { name: "Freehearts Africa Reach Out", desc: "ICT & community leadership development, HIV/AIDS advocacy." }
+  ];
+
+  const certificates = [
+    { title: "Business Email", issuer: "HP LIFE", date: "6/3/2026", icon: "fas fa-envelope" },
+    { title: "AI for Business Professionals", issuer: "HP LIFE", date: "6/3/2026", icon: "fas fa-robot" },
+    { title: "Social Media Marketing", issuer: "HP LIFE", date: "6/2/2026", icon: "fas fa-ad" },
+    { title: "ICT Diploma: Computer Operation/Microsoft Office", issuer: "Freehearts Africa", date: "Nov 2014", icon: "fas fa-laptop-code" },
+    { title: "10 Days Training in Photography", issuer: "Fati Abubakar Arts Foundation", date: "Sep 2025", icon: "fas fa-camera" }
+  ];
+
+  const portfolioImages = [
+    { title: "Brand Identity Design", desc: "Visual system for tech startup" },
+    { title: "Social Media Carousel", desc: "Engagement-driven templates" },
+    { title: "Corporate Flyer", desc: "Event promo design" },
+    { title: "Poster Series", desc: "Neutral skin-toned palette" },
+    { title: "Product Lifestyle", desc: "Minimalist storytelling" },
+    { title: "Instagram Story Set", desc: "High conversion visuals" },
+    { title: "Logo & Brand Kit", desc: "Cohesive brand language" }
+  ];
+
+  const testimonialData = {
+    quote: "Bashir's strategic approach transformed our digital presence. He doesn't just post—he builds a narrative. Within weeks, our engagement soared by +45% and audience trust skyrocketed. Co-Dev Hub highly recommends his expertise.",
+    author: "— Co-Dev Hub, Digital Lead",
+    role: "Social Innovation Centre"
+  };
+
+  // Render Functions
+  function renderServices() {
+    const container = document.getElementById("servicesContainer");
+    if (!container) return;
+    container.innerHTML = servicesData.map(service => `
+      <div class="service-card">
+        <div class="service-icon"><i class="${service.icon}"></i></div>
+        <h3>${service.title}</h3>
+        <p>${service.desc}</p>
+      </div>
+    `).join('');
+  }
+
+  function renderSkills() {
+    const container = document.getElementById("skillsContainer");
+    if (!container) return;
+    container.innerHTML = `<div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">${skillsList.map(skill => `<span class="skill-tag"><i class="fas fa-check-circle" style="font-size:0.8rem;"></i> ${skill}</span>`).join('')}</div>`;
+  }
+
+  function renderPlatforms() {
+    const container = document.getElementById("platformsContainer");
+    if (!container) return;
+    container.innerHTML = `<div class="platforms">${platformsList.map(plat => `<span class="platform-badge"><i class="fab fa-${plat.toLowerCase() === 'twitter' ? 'twitter' : plat.toLowerCase() === 'tiktok' ? 'tiktok' : plat.toLowerCase()}"></i> ${plat}</span>`).join('')}</div>`;
+  }
+
+  function renderOrganizations() {
+    const container = document.getElementById("orgsContainer");
+    if (!container) return;
+    container.innerHTML = organizations.map(org => `
+      <div class="org-card">
+        <i class="fas fa-building" style="font-size: 2rem; color: var(--sage-main); margin-bottom: 1rem; display:inline-block;"></i>
+        <h3>${org.name}</h3>
+        <p>${org.desc}</p>
+      </div>
+    `).join('');
+  }
+
+  function renderCertifications() {
+    const container = document.getElementById("certContainer");
+    if (!container) return;
+    container.innerHTML = certificates.map(cert => `
+      <div class="cert-card">
+        <i class="${cert.icon}" style="font-size: 2rem; color: var(--sage-main); margin-bottom: 0.75rem;"></i>
+        <h3>${cert.title}</h3>
+        <p>${cert.issuer}</p>
+        <small style="color: var(--gray-text);">${cert.date}</small>
+      </div>
+    `).join('');
+  }
+
+  function renderPortfolio() {
+    const container = document.getElementById("portfolioContainer");
+    if (!container) return;
+    container.innerHTML = portfolioImages.map(item => `
+      <div class="portfolio-card">
+        <div style="background: var(--sage-light); height: 180px; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+          <i class="fas fa-image" style="font-size: 3rem; color: var(--navy-deep); opacity: 0.6;"></i>
+        </div>
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+      </div>
+    `).join('');
+  }
+
+  function renderTestimonial() {
+    const container = document.getElementById("testimonialContainer");
+    if (!container) return;
+    container.innerHTML = `
+      <div style="background: var(--cream-bg); border-radius: 32px; padding: 2rem; box-shadow: var(--shadow-md); border-left: 6px solid var(--sage-main);">
+        <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--sage-main); margin-bottom: 1rem; opacity: 0.6;"></i>
+        <p style="font-size: 1.2rem; font-style: italic; margin-bottom: 1rem;">“${testimonialData.quote}”</p>
+        <p style="font-weight: 700;">${testimonialData.author}</p>
+        <small>${testimonialData.role}</small>
+      </div>
+    `;
+  }
+
+  // Typing effect
+  const roles = ["Digital Marketer", "Social Media Manager", "Graphic Designer", "Content Creator"];
+  let roleIdx = 0, charIdx = 0;
+  let currentText = "", isDeleting = false;
+  const typingElement = document.getElementById("typingEffect");
+  function typeEffect() {
+    if (!typingElement) return;
+    const fullText = roles[roleIdx];
+    if (!isDeleting) {
+      currentText = fullText.substring(0, charIdx + 1);
+      charIdx++;
+      if (charIdx === fullText.length) {
+        isDeleting = true;
+        setTimeout(() => {}, 2000);
+      }
+    } else {
+      currentText = fullText.substring(0, charIdx - 1);
+      charIdx--;
+      if (charIdx === 0) {
+        isDeleting = false;
+        roleIdx = (roleIdx + 1) % roles.length;
+      }
+    }
+    typingElement.innerHTML = `<span class="typed-cursor">${currentText}</span><span class="blinking-cursor">|</span>`;
+    setTimeout(typeEffect, isDeleting ? 80 : 120);
+  }
+
+  // Intersection Observer + fade-up
+  const fadeElements = document.querySelectorAll('.section-fade');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+  fadeElements.forEach(el => observer.observe(el));
+
+  // Mobile hamburger
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("navLinks");
+  if (hamburger && navLinks) {
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => navLinks.classList.remove("active"));
+    });
+  }
+
+  // Smooth scrolling for anchors
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href").substring(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+
+  // Facebook Pixel (placeholder - add your pixel ID)
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '123456789012345'); // Replace with actual pixel ID later
+  fbq('track', 'PageView');
+
+  // Google Analytics placeholder
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  // Uncomment and add GA ID
+  // gtag('config', 'G-XXXXXXXXXX');
+  
+  // Load all dynamic content
+  function init() {
+    renderServices();
+    renderSkills();
+    renderPlatforms();
+    renderOrganizations();
+    renderCertifications();
+    renderPortfolio();
+    renderTestimonial();
+    typeEffect();
+    // force one visible re-check for content already visible
+    setTimeout(() => {
+      fadeElements.forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight-100) el.classList.add('visible'); });
+    }, 100);
+  }
+  init();
+</script>
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Bashir Aminu",
+  "alternateName": "Bash Creatives",
+  "jobTitle": "Digital Marketer & Social Media Manager",
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "First Class Degree in Marketing"
+  },
+  "knowsAbout": ["Digital Marketing", "Social Media Management", "Graphic Design", "Content Strategy", "Community Management"],
+  "url": "https://bashcreatives.vercel.app",
+  "telephone": "+2348131562630",
+  "sameAs": [
+    "https://instagram.com/bashcreativespace"
+  ]
+}
+</script>
+</body>
+</html>
