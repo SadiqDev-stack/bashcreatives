@@ -9,7 +9,7 @@
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="Bash Creatives | Digital Marketing & Social Media Portfolio">
   <meta property="og:description" content="I back my creative work with a First Class degree in Marketing and over 4 years of digital experience. Let's build your brand presence.">
-  <meta property="og:image" content="#">
+  <meta property="og:image" content="images/portrait-bashir.jpeg">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bash Creatives Portfolio">
@@ -271,6 +271,22 @@
       box-shadow: var(--shadow-md);
       border-color: var(--sage-light);
     }
+    .org-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
+      min-height: 120px;
+    }
+    .org-logo img {
+      max-width: 120px;
+      max-height: 120px;
+      object-fit: contain;
+      border-radius: 18px;
+      background: var(--sage-soft);
+      padding: 0.75rem;
+      border: 1px solid rgba(141, 163, 154, 0.16);
+    }
     .service-icon {
       font-size: 2.4rem;
       color: var(--sage-main);
@@ -421,8 +437,8 @@
         </div>
       </div>
       <div class="hero-image">
-        <img src="https://placehold.co/400x400/E5EFEA/0B2B3B?text=Congress+Speaking" alt="Bashir speaking at congress event" loading="lazy">
-        <img src="https://placehold.co/400x400/E5EFEA/0B2B3B?text=Graduation+Steel" alt="Bashir graduation ceremony" loading="lazy">
+        <img src="images/portrait-bashir.jpeg" alt="Bashir Aminu portrait" loading="lazy">
+        <img src="images/bash-speaking-event.jpeg" alt="Bashir speaking at an event" loading="lazy">
       </div>
     </div>
   </section>
@@ -458,6 +474,14 @@
       <h2>Core Skills & Platforms</h2>
       <div id="skillsContainer" style="margin-bottom: 2rem;"></div>
       <div id="platformsContainer"></div>
+    </div>
+  </section>
+
+  <!-- Tools -->
+  <section id="tools" class="section-fade" style="background: var(--sage-soft);">
+    <div class="container">
+      <h2>Favourite Tools</h2>
+      <div id="toolsContainer" class="org-grid"></div>
     </div>
   </section>
 
@@ -506,6 +530,7 @@
         <a href="https://instagram.com/bashcreativespace" target="_blank" class="contact-link"><i class="fab fa-instagram fa-lg"></i> @bashcreativespace</a>
         <a href="tel:+2348131562630" class="contact-link"><i class="fas fa-phone-alt"></i> +234 813 156 2630</a>
         <a href="tel:+2348127216623" class="contact-link"><i class="fas fa-phone-alt"></i> +234 812 721 6623</a>
+        <a href="mailto:bashiraminu197@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> bashiraminu197@gmail.com</a>
       </div>
     </div>
   </section>
@@ -536,37 +561,48 @@
 
   const platformsList = ["Instagram", "TikTok", "Twitter", "Facebook", "LinkedIn"];
 
+  const toolsList = [
+    { name: "Grammarly", image: "images/grammarly-logo.png", alt: "Grammarly logo" },
+    { name: "Hootsuite", image: "images/hootsuite-logo.png", alt: "Hootsuite logo" },
+    { name: "Google Analytics", image: "images/google-analytics-logo.png", alt: "Google Analytics logo" },
+    { name: "Notion", image: "images/notion-logo.png", alt: "Notion logo" },
+    { name: "Premiere Pro", image: "images/premiere-pro-logo.png", alt: "Premiere Pro logo" },
+    { name: "CapCut", image: "images/capcut-logo.png", alt: "CapCut logo" }
+  ];
+
   const organizations = [
-    { name: "Co-Dev Hub", desc: "Leading Social Innovation Centre in Northeast Nigeria." },
-    { name: "AUN Entrepreneurship and Innovation Hub", desc: "American University of Nigeria — American style liberal arts & innovation." },
-    { name: "Kambasha Global Justice Attorneys", desc: "Nigerian law firm: IP protection, regulatory compliance, human rights advocacy." },
-    { name: "Fati Abubakar Arts Foundation", desc: "Visual arts for memorialization and healing." },
-    { name: "Echoes Breath Green", desc: "Sustainability & eco-conscious development initiative." },
-    { name: "Freehearts Africa Reach Out", desc: "ICT & community leadership development, HIV/AIDS advocacy." }
+    { name: "Co-Dev Hub", desc: "Leading Social Innovation Centre in Northeast Nigeria.", image: "images/co-dev-hub-logo.jpeg" },
+    { name: "AUN Entrepreneurship and Innovation Hub", desc: "American University of Nigeria — American style liberal arts & innovation.", image: "images/aun-nigeria-logo.jpeg" },
+    { name: "Kambasha Global Justice Attorneys", desc: "Nigerian law firm: IP protection, regulatory compliance, human rights advocacy.", image: "images/kambasha-logo.jpeg" },
+    { name: "Fati Abubakar Arts Foundation", desc: "Visual arts for memorialization and healing.", image: "images/fati-arts-logo.jpeg" },
+    { name: "Echoes Breath Green", desc: "Sustainability & eco-conscious development initiative.", image: "images/breath-green-logo.jpeg" },
+    { name: "Freehearts Africa Reach Out", desc: "ICT & community leadership development, HIV/AIDS advocacy.", image: "images/freehearts-ict-diploma.jpeg" }
   ];
 
   const certificates = [
-    { title: "Business Email", issuer: "HP LIFE", date: "6/3/2026", icon: "fas fa-envelope" },
-    { title: "AI for Business Professionals", issuer: "HP LIFE", date: "6/3/2026", icon: "fas fa-robot" },
-    { title: "Social Media Marketing", issuer: "HP LIFE", date: "6/2/2026", icon: "fas fa-ad" },
-    { title: "ICT Diploma: Computer Operation/Microsoft Office", issuer: "Freehearts Africa", date: "Nov 2014", icon: "fas fa-laptop-code" },
-    { title: "10 Days Training in Photography", issuer: "Fati Abubakar Arts Foundation", date: "Sep 2025", icon: "fas fa-camera" }
+    { title: "Business Email", issuer: "HP LIFE", date: "6/3/2026", icon: "fas fa-envelope", image: "images/hp-life-business-email.jpeg", alt: "HP LIFE Business Email Certificate" },
+    { title: "AI for Business Professionals", issuer: "HP LIFE", date: "6/3/2026", icon: "fas fa-robot", image: "images/hp-life-ai-business-professionals.jpeg", alt: "HP LIFE AI for Business Professionals Certificate" },
+    { title: "Social Media Marketing", issuer: "HP LIFE", date: "6/2/2026", icon: "fas fa-ad", image: "images/hp-life-social-media-marketing.jpeg", alt: "HP LIFE Social Media Marketing Certificate" },
+    { title: "ICT Diploma: Computer Operation/Microsoft Office", issuer: "Freehearts Africa", date: "Nov 2014", icon: "fas fa-laptop-code", image: "images/freehearts-ict-diploma.jpeg", alt: "Freehearts ICT Diploma" },
+    { title: "10 Days Training in Photography", issuer: "Fati Abubakar Arts Foundation", date: "Sep 2025", icon: "fas fa-camera", image: "images/fati-photography-certificate.jpeg", alt: "Fati Abubakar Photography Certificate" }
   ];
 
   const portfolioImages = [
-    { title: "Brand Identity Design", desc: "Visual system for tech startup" },
-    { title: "Social Media Carousel", desc: "Engagement-driven templates" },
-    { title: "Corporate Flyer", desc: "Event promo design" },
-    { title: "Poster Series", desc: "Neutral skin-toned palette" },
-    { title: "Product Lifestyle", desc: "Minimalist storytelling" },
-    { title: "Instagram Story Set", desc: "High conversion visuals" },
-    { title: "Logo & Brand Kit", desc: "Cohesive brand language" }
+    { title: "Co-Dev Hub: Creative Wednesday Flyer", desc: "Event flyer design", image: "images/codev-creative-wednesday.png", alt: "Creative Wednesday flyer for Co-Dev Hub" },
+    { title: "Co-Dev Hub: DevTalk Poster", desc: "Speaker poster design", image: "images/codev-devtalk-flyer.png", alt: "DevTalk poster" },
+    { title: "AUN LevelUp Flyer", desc: "Event promotional design", image: "images/aun-levelup-flyer.png", alt: "AUN LevelUp event flyer" },
+    { title: "Happy Worker's Day Campaign", desc: "Social campaign visual", image: "images/happy-workers-day-flyer.png", alt: "Happy Worker's Day visual" },
+    { title: "Speaker Promo: Muhammad Bukar", desc: "Speaker portrait poster", image: "images/testimonial-muhammad-bukar.png", alt: "Muhammad Bukar speaker poster" },
+    { title: "Birthday Feature: Bashir Aminu", desc: "Social profile design", image: "images/codev-bash-birthday-flyer.jpeg", alt: "Birthday feature design" },
+    { title: "Co-Dev Hub Eid Card", desc: "Festive social greeting", image: "images/codev-eid-flyer.jpeg", alt: "Eid Mubarak card" }
   ];
 
   const testimonialData = {
     quote: "Bashir's strategic approach transformed our digital presence. He doesn't just post—he builds a narrative. Within weeks, our engagement soared by +45% and audience trust skyrocketed. Co-Dev Hub highly recommends his expertise.",
     author: "— Co-Dev Hub, Digital Lead",
-    role: "Social Innovation Centre"
+    role: "Social Innovation Centre",
+    image: 'images/testimonial-muhammad-bukar.png',
+    imageAlt: 'Muhammad Bukar, Co-Dev Hub facilitator'
   };
 
   // Render Functions
@@ -599,9 +635,24 @@
     if (!container) return;
     container.innerHTML = organizations.map(org => `
       <div class="org-card">
-        <i class="fas fa-building" style="font-size: 2rem; color: var(--sage-main); margin-bottom: 1rem; display:inline-block;"></i>
+        <div class="org-logo">
+          <img src="${org.image}" alt="${org.name} logo">
+        </div>
         <h3>${org.name}</h3>
         <p>${org.desc}</p>
+      </div>
+    `).join('');
+  }
+
+  function renderTools() {
+    const container = document.getElementById("toolsContainer");
+    if (!container) return;
+    container.innerHTML = toolsList.map(tool => `
+      <div class="org-card">
+        <div class="org-logo">
+          <img src="${tool.image}" alt="${tool.alt}">
+        </div>
+        <h4 style="text-align:center;">${tool.name}</h4>
       </div>
     `).join('');
   }
@@ -611,7 +662,7 @@
     if (!container) return;
     container.innerHTML = certificates.map(cert => `
       <div class="cert-card">
-        <i class="${cert.icon}" style="font-size: 2rem; color: var(--sage-main); margin-bottom: 0.75rem;"></i>
+        ${cert.image ? `<img src="${cert.image}" alt="${cert.alt}" style="width:100%;max-height:140px;object-fit:contain;border-radius:12px;margin-bottom:0.75rem;">` : `<i class="${cert.icon}" style="font-size: 2rem; color: var(--sage-main); margin-bottom: 0.75rem;"></i>`}
         <h3>${cert.title}</h3>
         <p>${cert.issuer}</p>
         <small style="color: var(--gray-text);">${cert.date}</small>
@@ -624,8 +675,8 @@
     if (!container) return;
     container.innerHTML = portfolioImages.map(item => `
       <div class="portfolio-card">
-        <div style="background: var(--sage-light); height: 180px; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-          <i class="fas fa-image" style="font-size: 3rem; color: var(--navy-deep); opacity: 0.6;"></i>
+        <div style="height: 180px; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; overflow: hidden; background: var(--sage-light);">
+          ${item.image ? `<img src="${item.image}" alt="${item.alt || item.title}" style="width:100%;height:100%;object-fit:cover;">` : `<i class="fas fa-image" style="font-size: 3rem; color: var(--navy-deep); opacity: 0.6;"></i>`}
         </div>
         <h3>${item.title}</h3>
         <p>${item.desc}</p>
@@ -637,11 +688,14 @@
     const container = document.getElementById("testimonialContainer");
     if (!container) return;
     container.innerHTML = `
-      <div style="background: var(--cream-bg); border-radius: 32px; padding: 2rem; box-shadow: var(--shadow-md); border-left: 6px solid var(--sage-main);">
-        <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--sage-main); margin-bottom: 1rem; opacity: 0.6;"></i>
-        <p style="font-size: 1.2rem; font-style: italic; margin-bottom: 1rem;">“${testimonialData.quote}”</p>
-        <p style="font-weight: 700;">${testimonialData.author}</p>
-        <small>${testimonialData.role}</small>
+      <div style="background: var(--cream-bg); border-radius: 32px; padding: 2rem; box-shadow: var(--shadow-md); border-left: 6px solid var(--sage-main); display:flex; gap:1.25rem; align-items:center;">
+        ${testimonialData.image ? `<img src="${testimonialData.image}" alt="${testimonialData.imageAlt}" style="width:96px;height:96px;object-fit:cover;border-radius:12px;">` : ''}
+        <div style="flex:1;">
+          <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--sage-main); margin-bottom: 1rem; opacity: 0.6;"></i>
+          <p style="font-size: 1.12rem; font-style: italic; margin-bottom: 0.75rem;">“${testimonialData.quote}”</p>
+          <p style="font-weight: 700; margin-bottom: 0.25rem;">${testimonialData.author}</p>
+          <small>${testimonialData.role}</small>
+        </div>
       </div>
     `;
   }
@@ -727,6 +781,7 @@
     renderSkills();
     renderPlatforms();
     renderOrganizations();
+    renderTools();
     renderCertifications();
     renderPortfolio();
     renderTestimonial();
